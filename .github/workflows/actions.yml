@@ -1,6 +1,7 @@
 on: 
-push: 
-  branches: main
+  push:
+    branches:
+      - main # Only trigger the workflow when changes are pushed to the 'main' branch
 name: 🚀 Deploy website on push
 jobs:
   web-deploy:
@@ -10,10 +11,10 @@ jobs:
     - name: 🚚 Get latest code
       uses: actions/checkout@v3
 
-    - name: Use Node.js 18
+    - name: Use Node.js 18.x
       uses: actions/setup-node@v2
       with:
-        node-version: '18'
+        node-version: '18.x'
       
     - name: 🔨 Build Project
       run: |
